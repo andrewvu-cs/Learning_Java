@@ -1,52 +1,37 @@
-import java.util.Date;
 import java.util.Scanner;
-import java.util.Arrays;
-// import java.util.System;
-
 
 public class Main{
     public static void main(String[] args) {
-        int[] numbers = new int[5];
-        int target = 0, number = 0;
-        Scanner inputNumber = new Scanner(System.in);
-        System.out.print("Please insert a target number: ");
-        target = inputNumber.nextInt();
-        // Scanner inputNumberScanner = new Scanner(System.in);
-        for (byte i = 0; i < numbers.length; i++){
-            System.out.print("Please enter a number for index " + i + ": ");
-            number = inputNumber.nextInt();
-            numbers[i] = number;
-        }
-        System.out.println(Arrays.toString(numbers));
-        inputNumber.close();
-        Arrays.sort(numbers);
-        
-        Boolean result = isTwoSum(numbers, target);;
-        String resultString = (result) ? "Hahahahahah" : "NANANANANANA";
-        System.out.println(resultString);
-
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Please enter a string or word to check if it's a palindrome: ");
+        String strInput = sc.nextLine();
+        String endResult = "";
+        endResult = (isPalindrome(strInput)) ? 
+            strInput + " is a palindrome!" : 
+            strInput + " is not a palindrome!";
+        System.out.println(endResult);
+        sc.close();
     }
 
-    public static boolean isTwoSum(int[] array, int target){
+
+    public static String myClassVar = "class or static variable";
+
+    public static Boolean isPalindrome(String input){
+        // Lower case the string to avoid Capitalization errors
+        // Removing instances of whitespace;
+        // Race CAR will be a true value;
+        char[] inputArr = input.toLowerCase().replaceAll(" ", "").toCharArray();
+
         int i = 0;
-        int j = array.length - 1;
-
-        while (i < j){
-            if (array[i] + array[j] < target){
-                i++;
+        int j = inputArr.length - 1;
+    
+        while(i <= j){
+            if (inputArr[i] != inputArr[j]){
+                return false;
             }
-            if (array[i] + array[j] > target){
-                j--;
-            }
-            if (array[i] + array[j] == target){
-                System.out.println("Two numbers in the array match the target number!");
-                System.out.println("Target Number: " + target);
-                System.out.println("First Number: " + array[i] + " Second Number: " + array[j]);
-                return true;
-            }
-
+            i++;
+            j--;
         }
-
-        return false;
+        return true;
     }
-} 
+}
