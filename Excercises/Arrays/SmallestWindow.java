@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class SmallestWindow{
 
     public static void getSmallestWindow(int[] myArr){
@@ -25,6 +27,8 @@ public class SmallestWindow{
     public static void main(String[] args){
         int[] myArr = {3, 7, 5, 6, 9};
         SmallestWindow.getSmallestWindow(myArr);
+        // System.out.println(Arrays.stream(myArr).sum;
+
         // SmallestWindow win = new SmallestWindow();
         // win.getSmallestWindow(myArr);
     }
