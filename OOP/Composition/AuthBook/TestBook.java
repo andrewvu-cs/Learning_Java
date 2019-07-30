@@ -1,14 +1,13 @@
 public class TestBook{
     public static void main(String[] args){
-        Author andrew = new Author("Andrew", "andrew@gmail.com", 'm');
+        // Declare and allocate an array of Authors
+        Author[] authors = new Author[2];
+        authors[0] = new Author("Tan Ah Teck", "AhTeck@somewhere.com", 'm');
+        authors[1] = new Author("Paul Tan", "Paul@nowhere.com", 'm');
 
-        Book book1 = new Book("The autobio of Andrew", andrew, 3.00, 4);
-
-        System.out.println(book1.toString());
-        System.out.println("Book's name: " + book1.getName());
-        System.out.println("Book's author: " + book1.getAuthor());
-        System.out.println("Book's price: " + book1.getPrice());
-        System.out.println("Book's qty: " + book1.getQty());
+        // Declare and allocate a Book instance
+        Book javaDummy = new Book("Java for Dummy", authors, 19.99, 99);
+        System.out.println(javaDummy);  // toString()
 
 
     }
